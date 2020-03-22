@@ -24,7 +24,7 @@ export const getContacts = (req, res) => {
 }
 
 export const getContactWithID = (req, res) => {
-    Contact.findById(req.params.contactID, (err, contact) => {
+    Contact.findById(req.params.id, (err, contact) => {
         if (err) {
             res.send(err);
         }
@@ -33,7 +33,7 @@ export const getContactWithID = (req, res) => {
 }
 
 export const updateContact = (req, res) => {
-    Contact.findOneAndUpdate({ _id: req.params.contactID}, req.body, { new: true, useFindAndModify: false }, (err, contact) => {
+    Contact.findOneAndUpdate({ _id: req.params.id}, req.body, { new: true, useFindAndModify: false }, (err, contact) => {
         if (err) {
             res.send(err);
         }
@@ -42,7 +42,7 @@ export const updateContact = (req, res) => {
 }
 
 export const deleteContact = (req, res) => {
-    Contact.remove({ _id: req.params.contactID}, (err, contact) => {
+    Contact.remove({ _id: req.params.id}, (err, contact) => {
         if (err) {
             res.send(err);
         }
